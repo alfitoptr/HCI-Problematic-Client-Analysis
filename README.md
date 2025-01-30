@@ -47,7 +47,7 @@ Proyek ini bertujuan untuk menganalisis dan mengklasifikasikan klien bermasalah 
    - Hasil prediksi dapat ditemukan di output/submission.csv.
 
 ## Lisensi
-Proyek ini dilisensikan di bawah MIT License.
+Proyek ini dilisensikan di bawah Apache License 2.0.
 
 ## Kontak
 Untuk pertanyaan lebih lanjut, silakan hubungi di alfito.pfp@gmail.com.

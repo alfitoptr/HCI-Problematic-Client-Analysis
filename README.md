@@ -32,12 +32,16 @@ Proyek ini bertujuan untuk menganalisis dan mengklasifikasikan klien bermasalah 
    ```bash
    git clone https://github.com/username/HCI-Problematic-Client-Analysis.git
    
-2. Jalankan notebook:
+2. Install dependensi:
+   ```bash
+   pip install -r requirements.txt
+   
+4. Jalankan notebook:
 
    - Buka notebook.ipynb untuk melihat analisis dan pembangunan model.
    - Buka prediction.ipynb untuk melakukan prediksi pada data baru.
 
-3. Gunakan model:
+5. Gunakan model:
 
    - Model yang telah dilatih dapat ditemukan di output/model.pkl.
    - Hasil prediksi dapat ditemukan di output/submission.csv.

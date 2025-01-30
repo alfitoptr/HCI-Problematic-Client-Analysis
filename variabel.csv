@@ -1,0 +1,50 @@
+Table;Row;Description
+application_{train|test}.csv;SK_ID_CURR;ID of loan in our sample
+application_{train|test}.csv;NAME_CONTRACT_TYPE;Target variable (1 - client with payment difficulties: he/she had late payment more than X days on at least one of the first Y installments of the loan in our sample, 0 - all other cases)
+application_{train|test}.csv;CODE_GENDER;Identification if loan is cash or revolving
+application_{train|test}.csv;NAME_INCOME_TYPE;Gender of the client
+application_{train|test}.csv;NAME_EDUCATION_TYPE;Flag if the client owns a car
+application_{train|test}.csv;NAME_HOUSING_TYPE;Flag if client owns a house or flat
+application_{train|test}.csv;FLAG_EMP_PHONE;Number of children the client has
+application_{train|test}.csv;FLAG_WORK_PHONE;Income of the client
+application_{train|test}.csv;REGION_RATING_CLIENT;Credit amount of the loan
+application_{train|test}.csv;REGION_RATING_CLIENT_W_CITY;Loan annuity
+application_{train|test}.csv;REG_CITY_NOT_LIVE_CITY;For consumer loans it is the price of the goods for which the loan is given
+application_{train|test}.csv;REG_CITY_NOT_WORK_CITY;Who was accompanying client when he was applying for the loan
+application_{train|test}.csv;LIVE_CITY_NOT_WORK_CITY;Clients income type (businessman, working, maternity leave,…)
+application_{train|test}.csv;FLAG_DOCUMENT_6;Level of highest education the client achieved
+application_{train|test}.csv;ORGANIZATION_TYPE;Family status of the client
+application_{train|test}.csv;AMT_INCOME_TOTAL;What is the housing situation of the client (renting, living with parents, ...)
+application_{train|test}.csv;AMT_CREDIT;Normalized population of region where client lives (higher number means the client lives in more populated region)
+application_{train|test}.csv;AMT_ANNUITY;Client's age in days at the time of application
+application_{train|test}.csv;AMT_GOODS_PRICE;How many days before the application the person started current employment
+application_{train|test}.csv;REGION_POPULATION_RELATIVE;How many days before the application did client change his registration
+application_{train|test}.csv;DAYS_BIRTH;How many days before the application did client change the identity document with which he applied for the loan
+application_{train|test}.csv;DAYS_EMPLOYED;Age of client's car
+application_{train|test}.csv;DAYS_REGISTRATION;Did client provide mobile phone (1=YES, 0=NO)
+application_{train|test}.csv;DAYS_ID_PUBLISH;Did client provide work phone (1=YES, 0=NO)
+application_{train|test}.csv;HOUR_APPR_PROCESS_START;Did client provide home phone (1=YES, 0=NO)
+application_{train|test}.csv;EXT_SOURCE_2;Was mobile phone reachable (1=YES, 0=NO)
+application_{train|test}.csv;OBS_30_CNT_SOCIAL_CIRCLE;Did client provide home phone (1=YES, 0=NO)
+application_{train|test}.csv;OBS_60_CNT_SOCIAL_CIRCLE;Did client provide email (1=YES, 0=NO)
+application_{train|test}.csv;DAYS_LAST_PHONE_CHANGE;What kind of occupation does the client have
+application_{train|test}.csv;DEF_30_CNT_SOCIAL_CIRCLE;How many family members does client have
+application_{train|test}.csv;DEF_60_CNT_SOCIAL_CIRCLE;Our rating of the region where client lives (1,2,3)
+application_{train|test}.csv;CNT_CHILDREN;Our rating of the region where client lives with taking city into account (1,2,3)
+feature engineering bureau;TOTAL_CREDITS;Total Riwayat kredit klien (size data dari groupby SK_ID_CURR)
+feature engineering bureau;ACTIVE_CREDITS;"size of bureau['CREDIT_ACTIVE'] == ""Active"" per client"
+feature engineering bureau;AVG_DAYS_CREDIT;Frekuensi jarak waktu antar kredit sebelumnya (mean of bureau['DAYS_CREDIT']
+feature engineering bureau;CLOSED_CREDITS;"Menghitung jumlah kredit yang sudah selesai (bureau['CREDIT_ACTIVE'] == ""Closed"") per klien"
+feature engineering bureau;ACTIVE_CREDIT_RATIO;Membandingkan jumlah kredit aktif terhadap total kredit untuk setiap klien ('ACTIVE_CREDITS'] / ['TOTAL_CREDITS'])
+feature engineering credit_card_balance;TOTAL_MONTHS_DPD;Menghitung jumlah total bulan di mana terdapat keterlambatan pembayaran (dengan SK_DPD > 0) untuk setiap klien
+feature engineering credit_card_balance;AVG_CREDIT_LIMIT_USAGE;Menghitung rata-rata penggunaan limit kartu kredit untuk setiap klien berdasarkan data historis (mean of ['AMT_BALANCE'] / ['AMT_CREDIT_LIMIT_ACTUAL']
+feature engineering credit_card_balance;ACTIVE_CREDIT_CARDS;" Menghitung jumlah kartu kredit dengan status aktif (NAME_CONTRACT_STATUS = ""Active"") untuk setiap klien"
+feature engineering installments_payments;LATE_PAYMENTS_COUNT;Mengukur jumlah kejadian pembayaran terlambat (['DAYS_ENTRY_PAYMENT'] > ['DAYS_INSTALMENT'])
+feature engineering installments_payments;AVG_LATE_DAYS;Rata-rata keterlambatan pembayaran(DAYS_ENTRY_PAYMENT - DAYS_INSTALMENT)
+feature engineering installments_payments;LATE_PAYMENT_RATIO;Seberapa sering klien terlambat membayar relatif terhadap total pembayaran mereka (LATE_PAYMENTS_COUNT / total installment per client)
+feature engineering installments_payments;AVG_PAYMENT_RATIO;Rasio antara jumlah pembayaran aktual (AMT_PAYMENT) dan jumlah yang seharusnya dibayar (AMT_INSTALMENT) pada setiap cicilan ( LATE_PAYMENTS_COUNT / TOTAL_PAYMENTS)
+feature engineering prev Application;PREV_TOTAL_APPLICATIONS;Total aplikasi sebelumnya per klien.
+feature engineering prev Application;PREV_APPROVED_RATIO;Rasio aplikasi yang disetujui (NAME_CONTRACT_STATUS  = Approved / PREV_TOTAL_APPLICATIONS) per client
+feature engineering prev Application;PREV_AVG_AMT_CREDIT;Rata-rata jumlah kredit yang diminta. (mean of AMT_CREDIT)
+feature engineering application_{train|test}.csv;YEARS_BIRTH;Tahun kelahiran klien (- DAYS_BIRTH/ 365)
+application_{train|test}.csv;CNT_FAM_MEMBERS;How many family members does client have
